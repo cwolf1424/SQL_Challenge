@@ -1,40 +1,34 @@
+Titles
+---
+Title_ID varchar(10) PK 
+Title varchar(30)
+
+Employees
+---
+Emp_Number Int PK
+Title_ID varchar(10) FK - Titles.Title_ID
+DOB date
+First_Name varchar(20)
+Last_Name varchar(20)
+Sex varchar(5)
+Hire_Date date
+
 Departments
-rel -< Department_Employees
-rel -< Department_Managers
 ---
 Dept_Number varchar(20) PK
 Dept_Name varchar(20)
 
 Department_Employees
 ---
-Emp_Number PK FK-Employees.Emp_Number
-Dept_Number FK-Departmnets.Dept_Number
+Emp_Number Int PK FK - Employees.Emp_Number
+Dept_Number varchar(20) FK - Departments.Dept_Number
 
 Department_Managers
 ---
-Emp_Number PK FK-Employees.Emp_Number
-Dept_Number FK-Departmnets.Dept_Number
-
-Employees
-rel - Department_Employees
-rel - Department_Managers
----
-Emp_Number Int PK
-Title_ID varchar(10)
-DOB varchar(20)
-First_Name varchar(20)
-Last_Name varchar(20)
-Sex varchar(5)
-Hire_Date varchar(20)
-
-Tiltes
-rel - Employees
----
-Title_ID PK FK-Employees.Title_ID
-Title varchar(30)
+Dept_Number varchar(20) FK - Departments.Dept_Number
+Emp_Number Int PK FK - Employees.Emp_Number
 
 Salaries
-rel - Employees
 ---
-Emp_Number PK FK-Employees.Emp_Number 
+Emp_Number Int PK FK - Employees.Emp_Number 
 Salary Int
